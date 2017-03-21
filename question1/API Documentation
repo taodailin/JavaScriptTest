@@ -1,0 +1,45 @@
+//A post API to signup
+localhost/signUp
+
+Body: {
+  "firstName": "saurav",
+  "lastName": "saurav",
+  "email": "romil@nyu.edu",
+  "password": "sensation",
+  "userName":"anuj"
+  }
+  
+ //A post api to login
+ localhost/signup
+ Body: {
+    "emailId": "saurav@nyu.edu",
+    "password": "sensation"
+}
+//A Get Api to get all songs
+localhost/getSongs
+
+//A post API to add song to library
+localhost/addSongToLibrary
+Body:
+{
+	"userName":"saurav",
+	"songId":1
+}
+
+//A post Api to delete Song from Library
+	localhost/deleteSongFromLibrary
+ Body: {
+	"userName":"saurav",
+	"songId":1
+}
+// A get API toget all the songs from library of a particular user
+	getLibrary/:userId
+ //where userid is the usename such as saurav,romil
+ 
+ // A get API to get all the songs of a particular artist
+	getartistSong/:artistId
+  
+ // where artist id is id of a particular artist stored in artist document
+ 
+ //A get Api to get all artist
+	getArtists
