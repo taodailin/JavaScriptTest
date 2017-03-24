@@ -96,6 +96,7 @@ exports.deleteSongFromLibrary = function (request, response, next) {
         var data = request.body;
         function sendResponse(result) {
             if (result != null) {
+
                 response.send(200, result);
             }
             else
@@ -113,6 +114,7 @@ exports.deleteSongFromLibrary = function (request, response, next) {
 exports.viewUserLibrary = function (request, response, next) {
 
     try {
+        
         var userId=request.params.userId;
         function sendResponse(result) {
             if (result != null) {
@@ -122,8 +124,17 @@ exports.viewUserLibrary = function (request, response, next) {
                 response.send(401, "");
             return next();
         }
+        function extractSongId(result){
+            var arr=[];
+           for(x in result)
+            {
+               arr.push(result[x].songId);
+               
+            }
+            db.findSongsOfUserLibrary(arr,sendResponse);
+        }
         //console.log(data.body.userName);
-        db.viewUserLibrary(userId,sendResponse);
+        db.viewUserLibrary(userId,extractSongId);
     }
     catch (e) {
         console.log(JSON.stringify(e)+"error");

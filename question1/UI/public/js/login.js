@@ -37,7 +37,7 @@
           alert("Invalid Credentials");
         }
         else{
-        sessionStorage.setItem('email',object.data.emailId);
+        sessionStorage.setItem('userName',object.data.userName);
         $state.go('list');
       }
       })

@@ -18,6 +18,18 @@
         templateUrl: '/includes/song-list.html',
         controller: 'songController'
       })
+      $stateProvider
+      .state('library', {
+        url: "/library",
+        templateUrl: '/includes/library.html',
+        controller: 'libraryController'
+      })
+      $stateProvider
+      .state('artist', {
+        url: "/artist",
+        templateUrl: '/includes/artist.html',
+        controller: 'artistController'
+      })
   }
   init.$inject = ['$rootScope', '$state', '$timeout'];
   function init ($rootScope, $state, $timeout) {

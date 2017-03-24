@@ -107,7 +107,7 @@ exports.viewUserLibrary = function(userId,callBack){
                  .find(
                     {
                         "userName":userId
-                }).toArray( function(err, doc){ 
+                },{'songId':true, '_id': false}).toArray( function(err, doc){ 
                     console.log(doc.length);
                     callBack(doc);                  
                  });
@@ -138,6 +138,20 @@ exports.getAllArtist = function(callBack){
         if ( err ) throw err;
         result = db.collection(artistCollection)
                  .find().toArray( function(err, doc){ 
+                    console.log(doc.length);
+                    callBack(doc);                  
+                 });
+                 
+    });
+}
+exports.findSongsOfUserLibrary = function(arr, callBack){
+        
+    // this is a asynchronous connection to the db 
+     mongoClient.connect(dbHost, function(err, db){
+        if ( err ) throw err;
+         
+        result = db.collection(songsCollection)
+                 .find({"songId":{ $in: arr} }).toArray( function(err, doc){ 
                     console.log(doc.length);
                     callBack(doc);                  
                  });
