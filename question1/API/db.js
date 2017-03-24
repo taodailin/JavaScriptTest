@@ -70,31 +70,51 @@ exports.viewAllSongs = function(callBack){
 exports.addSongToLibrary = function(userName,songId,callBack){
         
      mongoClient.connect(dbHost, function (err, db) {
+         if ( err ) throw err;
+        db.collection(libraryCollection).findOne({
+        "userName": userName,
+        "songId": songId
+    }, function (err, results) {
+        if (err) throw err;
+        if(results==null){
+            insertSong(userName,songId,callBack);
+        }else{
+        callBack("not Inserted");
+    }
+
+    });
+    });
+}
+function insertSong(userName,songId,callBack){
+
+     mongoClient.connect(dbHost, function (err, db) {
+         if ( err ) throw err;
         db.collection(libraryCollection).insertOne({
         "userName": userName,
         "songId": songId
-    }), function (err, results) {
-            console.log(err);
-            console.log(result);
+    }, function (err, results) {
         if (err) throw err;
-
-    };
-    callBack("inserted");
+           callBack("inserted");
+    });
     });
 }
 exports.deleteSongFromLibrary = function(userName,songId,callBack){
         
      mongoClient.connect(dbHost, function (err, db) {
+         if ( err ) throw err;
         db.collection(libraryCollection).remove({
         "userName": userName,
         "songId": songId
-    }), function (err, results) {
+    }, function (err, results) {
             console.log(err);
-            console.log(result);
         if (err) throw err;
+        console.log(results.result.n);
+        if(results.result.n!=0){
+            callBack("deleted");
+        }
+        callBack("Not deleted");
 
-    };
-    callBack("deleted");
+    });
     });
 }
 exports.viewUserLibrary = function(userId,callBack){
