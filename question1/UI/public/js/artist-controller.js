@@ -11,9 +11,13 @@
       alert("Please login to view this Page");
       $state.go('login');
     }
-    getArtists();
-    $scope.logout = logout;
-    function getArtists(){
+    fetchArtist();
+     $scope.logout = logout;
+    $scope.getAllArtist=getAllArtist;
+    $scope.getAllSongs=getAllSongs;
+    $scope.getLibrary=getLibrary;
+    $scope.getArtistSongs=getArtistSongs;
+    function fetchArtist(){
       $http({
         method: 'GET',
         url: 'http://localhost' + '/getArtists'
@@ -23,12 +27,22 @@
       })
     }
 
-    function logout(){
+   
+    function getArtistSongs(artistId){
+      $state.go('artistSongs',{id:artistId})
+    }
+     function logout(){
       sessionStorage.clear();
       $state.go('login');
     }
-    function getArtistSongs(){
-        alert("hash");  
+    function getLibrary(){
+      $state.go('library');
+    }
+    function getAllArtist(){
+      $state.go('artist');
+    }
+    function getAllSongs(){
+      $state.go('list');
     }
   }
 })()

@@ -1,14 +1,18 @@
 
-<div ng-controller="songController">
+<div ng-controller="artistController">
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="margin-bottom:0px; margin-left:0px !important;background:#563d7c">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <a class="navbar-brand" href="#" style="color:#fff">Spotify</a>
         </div>
+         <div class="navbar-header pull-left" style="margin-top:10px">
+        <button class="btn btn-m btn-default" ng-click="getLibrary()">My lib</button>
+        <button class="btn btn-m btn-default" ng-click="getAllArtist()">Artists</button>
+        <button class="btn btn-m btn-default" ng-click="getAllSongs()">Songs</button>
+        </div>
         <div class="navbar-header pull-right" style="margin-top:10px">
           <button class="btn btn-sm btn-default" ng-click="logout()">Log Out</button>
-          <button class="btn btn-sm btn-default" ng-click="getLibrary()">My lib</button>
         </div>
         
       </div>
@@ -28,10 +32,11 @@
         
           <th scope="row">{{$index+1}}</th>
           <td>
-          <a ng-click="getArtistSongs()" href="#{{items.artistId}}">{{items.artist}}</a>
+          <ui-sref ng-click="getArtistSongs(items.artistId)" >{{items.artist}}</button>
           </td>
           <td>{{items.albums}}</td>
           <td>{{items.songs}}</td>
+          <td><button class='btn btn-sm btn-default' ng-click='getArtistSongs(items.artistId)'>View Songs</td>
           </a>
         </tr>
       </tbody>

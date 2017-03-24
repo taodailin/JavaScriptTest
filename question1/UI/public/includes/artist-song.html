@@ -1,0 +1,44 @@
+
+<div ng-controller="getArtistSongController">
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="margin-bottom:0px; margin-left:0px !important;background:#563d7c">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#" style="color:#fff">Spotify</a>
+        </div>
+        <div class="navbar-header pull-left" style="margin-top:10px">
+        <button class="btn btn-m btn-default" ng-click="getLibrary()">My lib</button>
+        <button class="btn btn-m btn-default" ng-click="getAllArtist()">Artists</button>
+        <button class="btn btn-m btn-default" ng-click="getAllSongs()">Songs</button>
+        </div>
+        <div class="navbar-header pull-right" style="margin-top:10px">
+          <button class="btn btn-sm btn-default" ng-click="logout()">Log Out</button>
+          
+        </div>
+        
+      </div>
+    </nav>
+  <div class="col-lg-12" style="padding:70px">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Album</th>
+          <th>Artist</th>
+          <th>#Listners</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="items in artistSongs">
+          <th scope="row">{{$index+1}}</th>
+          <td>{{items.songName}}</td>
+          <td>{{items.album}}</td>
+          <td>{{items.artistName}}</td>
+          <td><span><i class="fa fa-music"></i> {{items.listens}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>

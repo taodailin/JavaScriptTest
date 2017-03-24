@@ -6,9 +6,13 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="#" style="color:#fff">Soul Connect</a>
         </div>
+         <div class="navbar-header pull-left" style="margin-top:10px">
+        <button class="btn btn-m btn-default" ng-click="getLibrary()">My lib</button>
+        <button class="btn btn-m btn-default" ng-click="getAllArtist()">Artists</button>
+        <button class="btn btn-m btn-default" ng-click="getAllSongs()">Songs</button>
+        </div>
         <div class="navbar-header pull-right" style="margin-top:10px">
           <button class="btn btn-sm btn-default" ng-click="logout()">Log Out</button>
-          <button class="btn btn-sm btn-default" ng-click="getLibrary()">My lib</button>
         </div>
         
       </div>
@@ -31,6 +35,7 @@
           <td>{{items.album}}</td>
           <td>{{items.artistName}}</td>
           <td><span><i class="fa fa-music"></i> {{items.listens}}</td>
+         <td><button class='btn btn-sm btn-default' ng-click='addSong(items.songId)'>Add Song to lib</td>
         </tr>
       </tbody>
     </table>

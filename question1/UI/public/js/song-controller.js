@@ -13,6 +13,10 @@
     }
     getSongs();
     $scope.logout = logout;
+    $scope.getAllArtist=getAllArtist;
+    $scope.getAllSongs=getAllSongs;
+    $scope.getLibrary=getLibrary;
+    $scope.addSong=addSong;
     function getSongs(){
       $http({
         method: 'GET',
@@ -23,12 +27,38 @@
       })
     }
 
-    function logout(){
+    
+    function addSong(id){
+       $http({
+          method: 'POST',
+          url: 'http://localhost' + '/addSongToLibrary',
+          data :{                  
+            userName: sessionStorage.getItem('userName')  ,
+            songId: id
+          }
+        }).then(function(object) {
+          if(object.data == "inserted"){
+            // gotoSongs();
+            alert('Song Added successfully');
+            getSongs();
+          }
+          else{
+            alert('Song already in library');
+          }
+        })
+      }
+      function logout(){
       sessionStorage.clear();
       $state.go('login');
     }
     function getLibrary(){
       $state.go('library');
     }
-  }
+    function getAllArtist(){
+      $state.go('artist');
+    }
+    function getAllSongs(){
+      $state.go('list');
+    }
+    }
 })()
