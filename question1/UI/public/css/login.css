@@ -1,0 +1,40 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(255,255,255,0.6) inset;
+}
+html, 
+body {
+    height: 100%;
+}
+body{
+    background-image: url('/images/back.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #ffffff !important;
+  }   
+.form-div{
+  background:rgba(255,255,255,0.4);
+  border-radius:5px;
+  padding-left:10px;
+  padding-right:10px;
+}
+.main-div{
+  padding:40px;
+}
+.has-error{
+border:1px solid red;
+}
+.help-block
+{
+  color:red;
+  border-color: #dd4b39;
+}
+.btn-login{
+  background: #ff3f35;
+  color:#fff;
+}

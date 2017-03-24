@@ -1,0 +1,44 @@
+.btn-green{
+  background:#017935;
+  color:#fff !important;
+  border-radius:3px;
+}
+.heading-green{
+  color:#017935;
+}
+.heading-red{
+  color:#ea8f8b;
+}
+.no-padding{
+  padding:0px;
+}
+.btn-class{
+  padding-left:20px;
+  padding-right:20px;
+}
+.btn-grey{
+  background:#9a9595;
+  color:#fff !important;
+  border-radius:3px;
+}
+.btn-red{
+  background:#ea8f8b;
+  color:#fff !important;
+  border-radius:3px;
+ 
+}
+.btn-orange{
+  background:#f68e56;
+  color:#fff !important;
+  border-radius:3px;
+}
+.has-error{
+  border:1px solid red;
+}
+.help-block{
+  color:red;
+}
+.modal-footer{
+  padding-bottom: 0px;
+  /*padding-right:0px;*/
+}
